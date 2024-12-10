@@ -1,4 +1,6 @@
+import 'package:bookly/core/utils/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({super.key});
@@ -7,8 +9,14 @@ class SplashView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('Bookly'),
-      ),
+          child: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width / 1.5,
+        child: SvgPicture.asset(
+          AssetsData.logo,
+          fit: BoxFit.contain,
+        ),
+      )),
     );
   }
 }
