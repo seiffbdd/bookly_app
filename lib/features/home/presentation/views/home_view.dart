@@ -1,3 +1,5 @@
+import 'package:bookly/core/utils/screen_size.dart';
+import 'package:bookly/features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -6,8 +8,17 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('home'),
+      body: Padding(
+        padding:
+            const EdgeInsets.only(top: 30, right: 16, left: 16, bottom: 16),
+        child: Column(
+          children: [
+            SizedBox(
+              height: screenHeight(context) / 10,
+              child: const CustomAppBar(),
+            )
+          ],
+        ),
       ),
     );
   }
