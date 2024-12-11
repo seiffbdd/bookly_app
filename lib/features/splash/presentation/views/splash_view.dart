@@ -1,6 +1,10 @@
+import 'package:bookly/constants.dart';
 import 'package:bookly/core/utils/assets.dart';
+import 'package:bookly/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -17,6 +21,8 @@ class _SplashViewState extends State<SplashView>
   void initState() {
     super.initState();
     initSlidingAnimation();
+
+    navigateToHome();
   }
 
   @override
@@ -80,5 +86,15 @@ class _SplashViewState extends State<SplashView>
         Tween<Offset>(begin: const Offset(0, 5), end: const Offset(0, 0))
             .animate(_animationController);
     _animationController.forward();
+  }
+
+  void navigateToHome() {
+    Future.delayed(
+      const Duration(seconds: 3),
+      () {
+        Get.to(() => const HomeView(),
+            transition: Transition.fadeIn, duration: kTransitionDuration);
+      },
+    );
   }
 }
