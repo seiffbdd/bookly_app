@@ -1,0 +1,23 @@
+import 'package:bookly/features/home/presentation/views/widgets/book_image_widget.dart';
+import 'package:flutter/material.dart';
+
+class BuildHorizontalList extends StatelessWidget {
+  const BuildHorizontalList({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      scrollDirection: Axis.horizontal,
+      physics: BouncingScrollPhysics(),
+      itemCount: 10,
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 5.0),
+          child: const BookImageWidget(),
+        );
+      },
+    );
+  }
+}
