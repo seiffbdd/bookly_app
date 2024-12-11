@@ -34,6 +34,7 @@ class _SplashViewState extends State<SplashView>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // logo and its animation
             AnimatedBuilder(
                 animation: _animation,
                 builder: (context, _) {
@@ -49,6 +50,7 @@ class _SplashViewState extends State<SplashView>
                     ),
                   );
                 }),
+            // text and its animation
             AnimatedBuilder(
                 animation: _animation,
                 builder: (context, _) {
