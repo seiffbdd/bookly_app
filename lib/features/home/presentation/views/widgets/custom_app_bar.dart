@@ -14,8 +14,8 @@ class CustomAppBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         SizedBox(
-            height: screenHeight(context) / 10,
-            width: screenWidth(context) / 4,
+            height: ScreenSize.screenHeight(context) / 10,
+            width: ScreenSize.screenWidth(context) / 4,
             child: SvgPicture.asset(AssetsData.logo)),
         IconButton(
             onPressed: () {},

@@ -1,4 +1,5 @@
 import 'package:bookly/core/utils/screen_size.dart';
+import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_image_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -14,8 +15,8 @@ class CustomBookCard extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(right: 12.0),
           child: SizedBox(
-              width: screenWidth(context) / 5,
-              height: screenHeight(context) / 7,
+              width: ScreenSize.screenWidth(context) / 5,
+              height: ScreenSize.screenHeight(context) / 7,
               child: const BookImageWidget()),
         ),
         Expanded(
@@ -27,25 +28,23 @@ class CustomBookCard extends StatelessWidget {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   'this is a good cat vdsvvdsdfdfvdsdfvfdvfvdfvfddvvdfdffvd',
-                  style: TextStyle(fontSize: 20),
+                  style: Styles.textStyle20,
                 ),
               ),
               Text(
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                'book owner',
-                style: TextStyle(
-                    fontSize: 16.0, color: Colors.white.withOpacity(0.5)),
-              ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  'book owner',
+                  style: Styles.textStyle14
+                      .copyWith(color: Colors.white.withOpacity(0.5))),
               Row(
                 children: [
                   const Text(
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     '19.9 \$',
-                    style: TextStyle(
-                      fontSize: 20.0,
-                    ),
+                    style:
+                        TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
                   ),
                   const Spacer(),
                   const Icon(
@@ -56,17 +55,15 @@ class CustomBookCard extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     '4.8',
-                    style: TextStyle(
-                      fontSize: 16.0,
-                    ),
+                    style:
+                        TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500),
                   ),
                   Text(
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    '   (2390)',
-                    style: TextStyle(
-                        fontSize: 16.0, color: Colors.white.withOpacity(.5)),
-                  ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      '   (2390)',
+                      style: Styles.textStyle14
+                          .copyWith(color: Colors.white.withOpacity(0.5))),
                 ],
               )
             ],

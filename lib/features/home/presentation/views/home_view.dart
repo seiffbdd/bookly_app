@@ -1,4 +1,5 @@
 import 'package:bookly/core/utils/screen_size.dart';
+import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/home/presentation/views/widgets/build_horizontal_list.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_book_card.dart';
@@ -18,14 +19,14 @@ class HomeView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: screenHeight(context) / 10,
+                height: ScreenSize.screenHeight(context) / 10,
                 child: const CustomAppBar(),
               ),
               const SizedBox(
                 height: 30,
               ),
               SizedBox(
-                height: screenHeight(context) / 4,
+                height: ScreenSize.screenHeight(context) / 4,
                 child: const BuildHorizontalList(),
               ),
               const SizedBox(
@@ -33,7 +34,7 @@ class HomeView extends StatelessWidget {
               ),
               const Text(
                 'Best Seller',
-                style: TextStyle(fontSize: 20),
+                style: Styles.textStyle18,
               ),
               ListView.builder(
                 shrinkWrap: true,
@@ -43,7 +44,7 @@ class HomeView extends StatelessWidget {
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 16.0),
                     child: SizedBox(
-                      height: screenHeight(context) / 7,
+                      height: ScreenSize.screenHeight(context) / 7,
                       child: const CustomBookCard(),
                     ),
                   );

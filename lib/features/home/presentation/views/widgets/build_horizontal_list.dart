@@ -17,7 +17,8 @@ class BuildHorizontalList extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 5.0),
           child: SizedBox(
-              width: screenWidth(context) / 3, child: const BookImageWidget()),
+              width: ScreenSize.screenWidth(context) / 3,
+              child: const BookImageWidget()),
         );
       },
     );
