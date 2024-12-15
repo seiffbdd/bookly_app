@@ -13,13 +13,16 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: CustomScrollView(
-      physics: const BouncingScrollPhysics(),
-      slivers: [
-        SliverToBoxAdapter(
-          child: Padding(
-            padding:
-                const EdgeInsets.only(top: 30, right: 16, left: 16, bottom: 16),
+        body: Padding(
+      padding: const EdgeInsets.only(
+        top: 30,
+        right: 16,
+        left: 16,
+      ),
+      child: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
+        slivers: [
+          SliverToBoxAdapter(
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,14 +49,14 @@ class HomeView extends StatelessWidget {
               ),
             ),
           ),
-        ),
-        SliverFillRemaining(
-            child: GestureDetector(
-                onTap: () {
-                  GoRouter.of(context).push(AppRouter.kBookDetailsView);
-                },
-                child: const BestSellerListView()))
-      ],
+          SliverFillRemaining(
+              child: GestureDetector(
+                  onTap: () {
+                    GoRouter.of(context).push(AppRouter.kBookDetailsView);
+                  },
+                  child: const BestSellerListView()))
+        ],
+      ),
     ));
   }
 }

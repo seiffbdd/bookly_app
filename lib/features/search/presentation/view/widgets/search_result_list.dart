@@ -2,13 +2,12 @@ import 'package:bookly/core/utils/screen_size.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_book_card.dart';
 import 'package:flutter/material.dart';
 
-class BestSellerListView extends StatelessWidget {
-  const BestSellerListView({super.key});
+class SearchResultList extends StatelessWidget {
+  const SearchResultList({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      physics: const NeverScrollableScrollPhysics(),
       itemCount: 10,
       padding: const EdgeInsets.only(top: 5.0),
       itemBuilder: (context, index) {
