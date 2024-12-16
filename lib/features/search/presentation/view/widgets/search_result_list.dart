@@ -1,5 +1,5 @@
 import 'package:bookly/core/utils/screen_size.dart';
-import 'package:bookly/features/home/presentation/views/widgets/custom_book_card.dart';
+import 'package:bookly/features/home/presentation/view/widgets/custom_book_card.dart';
 import 'package:flutter/material.dart';
 
 class SearchResultList extends StatelessWidget {
