@@ -15,9 +15,9 @@ class CustomBookCard extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(right: 12.0),
           child: SizedBox(
-              width: ScreenSize.screenWidth(context) / 5,
-              height: ScreenSize.screenHeight(context) / 7,
-              child: const BookImageWidget()),
+            width: ScreenSize.screenWidth(context) / 5,
+            height: ScreenSize.screenHeight(context) / 7,
+          ),
         ),
         Expanded(
           child: Column(

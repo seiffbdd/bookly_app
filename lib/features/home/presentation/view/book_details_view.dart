@@ -25,7 +25,7 @@ class BookDetailsView extends StatelessWidget {
               SizedBox(
                 height: ScreenSize.screenHeight(context) / 3.3,
                 width: ScreenSize.screenWidth(context) / 2.3,
-                child: const BookImageWidget(),
+                // child: const BookImageWidget(),
               ),
               const SizedBox(
                 height: 30,
