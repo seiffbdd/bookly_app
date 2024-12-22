@@ -1,7 +1,6 @@
 import 'package:bookly/core/utils/screen_size.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/home/presentation/view/widgets/book_details_app_bar.dart';
-import 'package:bookly/features/home/presentation/view/widgets/book_image_widget.dart';
 import 'package:bookly/features/home/presentation/view/widgets/build_horizontal_list.dart';
 import 'package:bookly/features/home/presentation/view/widgets/two_material_buttons_row.dart';
 import 'package:flutter/material.dart';

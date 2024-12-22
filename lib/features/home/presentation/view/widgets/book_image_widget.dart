@@ -1,4 +1,5 @@
 import 'package:bookly/features/home/data/models/book_model/book_model.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class BookImageWidget extends StatelessWidget {
@@ -11,11 +12,12 @@ class BookImageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(15),
-      child: Image.network(
-        book.volumeInfo!.imageLinks!.thumbnail!,
-        fit: BoxFit.fill,
-      ),
-    );
+        borderRadius: BorderRadius.circular(15),
+        child: CachedNetworkImage(
+          imageUrl: book.volumeInfo!.imageLinks!.thumbnail!,
+          errorWidget: (context, url, error) =>
+              const Center(child: CircularProgressIndicator()),
+          fit: BoxFit.fill,
+        ));
   }
 }
