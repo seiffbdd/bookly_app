@@ -1,10 +1,11 @@
+import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/core/utils/screen_size.dart';
-import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/view/widgets/book_image_widget.dart';
 import 'package:bookly/features/home/presentation/view/widgets/build_circle_indicator.dart';
 import 'package:bookly/features/home/presentation/view_model/featured_books_cubit/featured_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class BuildHorizontalList extends StatelessWidget {
   const BuildHorizontalList({
@@ -32,9 +33,14 @@ class BuildHorizontalList extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 5.0),
                 child: SizedBox(
                     width: ScreenSize.screenWidth(context) / 3,
-                    child: BookImageWidget(
-                      book: BlocProvider.of<FeaturedBooksCubit>(context)
-                          .books[index],
+                    child: GestureDetector(
+                      onTap: () {
+                        GoRouter.of(context).push(AppRouter.kBookDetailsView);
+                      },
+                      child: BookImageWidget(
+                        book: BlocProvider.of<FeaturedBooksCubit>(context)
+                            .books[index],
+                      ),
                     )),
               );
             },

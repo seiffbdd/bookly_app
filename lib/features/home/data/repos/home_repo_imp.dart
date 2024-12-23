@@ -50,4 +50,25 @@ class HomeRepoImp implements HomeRepo {
       return left(ServerFailer(errMessage: e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, List<BookModel>>> fetchSimilarBooks() async {
+    try {
+      Map<String, dynamic> data = await apiServices.get(
+          endPoint: 'volumes?q=programming&orderBy=relevance');
+
+      List<BookModel> books = [];
+
+      for (var book in data['items']) {
+        books.add(BookModel.fromJson(book));
+      }
+      return right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailer(
+            errMessage: ServerFailer.fromDioException(e).toString()));
+      }
+      return left(ServerFailer(errMessage: e.toString()));
+    }
+  }
 }

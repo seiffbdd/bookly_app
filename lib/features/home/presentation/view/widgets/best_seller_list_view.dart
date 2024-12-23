@@ -1,9 +1,11 @@
+import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/core/utils/screen_size.dart';
 import 'package:bookly/features/home/presentation/view/widgets/build_circle_indicator.dart';
 import 'package:bookly/features/home/presentation/view/widgets/custom_book_card.dart';
 import 'package:bookly/features/home/presentation/view_model/newest_books_cubit/newest_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class BestSellerListView extends StatelessWidget {
   const BestSellerListView({super.key});
@@ -28,8 +30,13 @@ class BestSellerListView extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 16.0),
                 child: SizedBox(
                   height: ScreenSize.screenHeight(context) / 7,
-                  child: CustomBookCard(
-                    book: state.books[index],
+                  child: GestureDetector(
+                    onTap: () {
+                      GoRouter.of(context).push(AppRouter.kBookDetailsView);
+                    },
+                    child: CustomBookCard(
+                      book: state.books[index],
+                    ),
                   ),
                 ),
               );
