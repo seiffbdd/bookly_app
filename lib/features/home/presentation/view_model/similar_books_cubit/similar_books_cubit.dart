@@ -11,10 +11,10 @@ class SimilarBooksCubit extends Cubit<SimilarBooksState> {
   SimilarBooksCubit(this._homeRepoImp) : super(SimilarBooksInitial());
   final HomeRepoImp _homeRepoImp;
 
-  Future<void> fetchSimilarBooks() async {
+  Future<void> fetchSimilarBooks({required String category}) async {
     emit(SimilarBooksLoading());
     Either<Failure, List<BookModel>> data =
-        await _homeRepoImp.fetchFeaturedBooks();
+        await _homeRepoImp.fetchSimilarBooks(category: category);
 
     data.fold(
       (failure) {

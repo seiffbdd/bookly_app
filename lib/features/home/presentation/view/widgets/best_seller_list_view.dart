@@ -32,7 +32,8 @@ class BestSellerListView extends StatelessWidget {
                   height: ScreenSize.screenHeight(context) / 7,
                   child: GestureDetector(
                     onTap: () {
-                      GoRouter.of(context).push(AppRouter.kBookDetailsView);
+                      GoRouter.of(context).push(AppRouter.kBookDetailsView,
+                          extra: state.books[index]);
                     },
                     child: CustomBookCard(
                       book: state.books[index],

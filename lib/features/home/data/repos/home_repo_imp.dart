@@ -52,7 +52,8 @@ class HomeRepoImp implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchSimilarBooks() async {
+  Future<Either<Failure, List<BookModel>>> fetchSimilarBooks(
+      {required String category}) async {
     try {
       Map<String, dynamic> data = await apiServices.get(
           endPoint: 'volumes?q=programming&orderBy=relevance');

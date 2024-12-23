@@ -1,12 +1,27 @@
 import 'package:bookly/core/utils/screen_size.dart';
 import 'package:bookly/core/utils/styles.dart';
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/view/widgets/book_details_app_bar.dart';
-import 'package:bookly/features/home/presentation/view/widgets/build_horizontal_list.dart';
+import 'package:bookly/features/home/presentation/view/widgets/similar_books_list_view.dart';
 import 'package:bookly/features/home/presentation/view/widgets/two_material_buttons_row.dart';
+import 'package:bookly/features/home/presentation/view_model/similar_books_cubit/similar_books_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class BookDetailsView extends StatelessWidget {
-  const BookDetailsView({super.key});
+class BookDetailsView extends StatefulWidget {
+  const BookDetailsView({super.key, required this.book});
+  final BookModel book;
+  @override
+  State<BookDetailsView> createState() => _BookDetailsViewState();
+}
+
+class _BookDetailsViewState extends State<BookDetailsView> {
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<SimilarBooksCubit>(context)
+        .fetchSimilarBooks(category: widget.book.volumeInfo!.categories![0]);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +100,7 @@ class BookDetailsView extends StatelessWidget {
               ),
               SizedBox(
                 height: ScreenSize.screenHeight(context) / 7.25,
-                child: const BuildHorizontalList(),
+                child: const SimilarBooksListView(),
               )
             ],
           ),
