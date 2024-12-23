@@ -15,7 +15,7 @@ class SearchResultList extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 16.0),
           child: SizedBox(
             height: ScreenSize.screenHeight(context) / 7,
-            child: const CustomBookCard(),
+            // child: const CustomBookCard(),
           ),
         );
       },

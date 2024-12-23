@@ -13,7 +13,7 @@ class HomeRepoImp implements HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchNewestBooks() async {
     try {
       Map<String, dynamic> data = await apiServices.get(
-          endPoint: 'volumes?q=programming&filter=free-ebooks&orderBy=newest');
+          endPoint: 'volumes?q=programming&orderBy=newest');
 
       List<BookModel> books = [];
 
@@ -24,7 +24,7 @@ class HomeRepoImp implements HomeRepo {
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailer(
-            errMessage: ServerFailer.fromDioException(e) as String));
+            errMessage: ServerFailer.fromDioException(e).toString()));
       }
       return left(ServerFailer(errMessage: e.toString()));
     }
@@ -33,8 +33,8 @@ class HomeRepoImp implements HomeRepo {
   @override
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
-      Map<String, dynamic> data = await apiServices.get(
-          endPoint: 'volumes?q=programming&filter=free-ebooks');
+      Map<String, dynamic> data =
+          await apiServices.get(endPoint: 'volumes?q=programming');
 
       List<BookModel> books = [];
 
@@ -45,7 +45,7 @@ class HomeRepoImp implements HomeRepo {
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailer(
-            errMessage: ServerFailer.fromDioException(e) as String));
+            errMessage: ServerFailer.fromDioException(e).toString()));
       }
       return left(ServerFailer(errMessage: e.toString()));
     }

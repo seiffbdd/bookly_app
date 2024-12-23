@@ -1,4 +1,5 @@
 import 'package:bookly/core/utils/screen_size.dart';
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/view/widgets/book_image_widget.dart';
 import 'package:bookly/features/home/presentation/view/widgets/build_circle_indicator.dart';
 import 'package:bookly/features/home/presentation/view_model/featured_books_cubit/featured_books_cubit.dart';
@@ -24,14 +25,16 @@ class BuildHorizontalList extends StatelessWidget {
           return ListView.builder(
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
-            itemCount: state.books.length,
+            itemCount:
+                BlocProvider.of<FeaturedBooksCubit>(context).books.length,
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 5.0),
                 child: SizedBox(
                     width: ScreenSize.screenWidth(context) / 3,
                     child: BookImageWidget(
-                      book: state.books[index],
+                      book: BlocProvider.of<FeaturedBooksCubit>(context)
+                          .books[index],
                     )),
               );
             },

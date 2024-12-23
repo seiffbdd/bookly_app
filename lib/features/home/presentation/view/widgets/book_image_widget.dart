@@ -14,7 +14,7 @@ class BookImageWidget extends StatelessWidget {
     return ClipRRect(
         borderRadius: BorderRadius.circular(15),
         child: CachedNetworkImage(
-          imageUrl: book.volumeInfo!.imageLinks!.thumbnail!,
+          imageUrl: book.volumeInfo!.imageLinks?.thumbnail! ?? '',
           errorWidget: (context, url, error) =>
               const Center(child: CircularProgressIndicator()),
           fit: BoxFit.fill,
