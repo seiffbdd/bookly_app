@@ -2,7 +2,6 @@ import 'package:bookly/core/utils/screen_size.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/core/utils/url_launch.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class TwoMaterialButtonsRow extends StatelessWidget {
   const TwoMaterialButtonsRow({
