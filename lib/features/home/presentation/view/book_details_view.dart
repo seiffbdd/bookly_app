@@ -93,7 +93,10 @@ class _BookDetailsViewState extends State<BookDetailsView> {
               const SizedBox(
                 height: 30,
               ),
-              const TwoMaterialButtonsRow(),
+              if (widget.book.volumeInfo!.previewLink != null)
+                TwoMaterialButtonsRow(
+                  previewLink: widget.book.volumeInfo!.previewLink!,
+                ),
               const SizedBox(
                 height: 40,
               ),

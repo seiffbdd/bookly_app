@@ -14,6 +14,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
+      color: Colors.white,
       onRefresh: () {
         BlocProvider.of<FeaturedBooksCubit>(context).refreshFeaturedBooks();
         BlocProvider.of<NewestBooksCubit>(context).refreshNewestBooks();
