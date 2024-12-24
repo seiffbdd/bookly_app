@@ -1,6 +1,6 @@
 import 'package:bookly/core/utils/screen_size.dart';
 import 'package:bookly/core/utils/styles.dart';
-import 'package:bookly/features/home/data/models/book_model/book_model.dart';
+import 'package:bookly/core/models/book_model.dart';
 import 'package:bookly/features/home/presentation/view/widgets/book_details_app_bar.dart';
 import 'package:bookly/features/home/presentation/view/widgets/book_image_widget.dart';
 import 'package:bookly/features/home/presentation/view/widgets/similar_books_list_view.dart';
