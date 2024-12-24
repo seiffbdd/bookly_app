@@ -4,7 +4,9 @@ import 'package:bookly/features/home/data/repos/home_repo_imp.dart';
 import 'package:bookly/features/home/presentation/view/book_details_view.dart';
 import 'package:bookly/features/home/presentation/view/home_view.dart';
 import 'package:bookly/features/home/presentation/view_model/similar_books_cubit/similar_books_cubit.dart';
+import 'package:bookly/features/search/data/repos/search_repo_imp.dart';
 import 'package:bookly/features/search/presentation/view/search_view.dart';
+import 'package:bookly/features/search/presentation/view_model/searched_books_cubit/searched_books_cubit.dart';
 import 'package:bookly/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -35,7 +37,12 @@ abstract class AppRouter {
     ),
     GoRoute(
       path: kSearchView,
-      builder: (context, state) => const SearchView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => SearchedBooksCubit(
+          getIt.get<SearchRepoImp>(),
+        ),
+        child: const SearchView(),
+      ),
     ),
   ]);
 }

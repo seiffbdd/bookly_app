@@ -52,7 +52,7 @@ class VolumeInfo extends Equatable {
         title: json['title'] as String?,
         authors: (json['authors'] as List<dynamic>?)?.cast<String>(),
         publisher: json['publisher'] as String?,
-        publishedDate: json['publishedDate'] as String?,
+        publishedDate: json['publishedDate'] ?? '' as String?,
         description: json['description'] as String?,
         industryIdentifiers: (json['industryIdentifiers'] as List<dynamic>?)
             ?.map((e) => IndustryIdentifier.fromJson(e as Map<String, dynamic>))

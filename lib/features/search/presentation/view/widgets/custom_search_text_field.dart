@@ -2,11 +2,16 @@ import 'package:bookly/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomSearchTextField extends StatelessWidget {
-  const CustomSearchTextField({super.key});
+  const CustomSearchTextField(
+      {super.key, required this.controller, required this.onSubmitted});
+  final TextEditingController controller;
+  final void Function(String) onSubmitted;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: controller,
+      onSubmitted: onSubmitted,
       enabled: true,
       autofocus: true,
       textInputAction: TextInputAction.search,
