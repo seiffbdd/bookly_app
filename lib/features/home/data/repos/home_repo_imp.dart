@@ -56,7 +56,7 @@ class HomeRepoImp implements HomeRepo {
       {required String category}) async {
     try {
       Map<String, dynamic> data = await apiServices.get(
-          endPoint: 'volumes?q=programming&orderBy=relevance');
+          endPoint: 'volumes?q=$category&orderBy=relevance');
 
       List<BookModel> books = [];
 

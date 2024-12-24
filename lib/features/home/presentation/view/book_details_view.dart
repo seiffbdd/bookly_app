@@ -2,6 +2,7 @@ import 'package:bookly/core/utils/screen_size.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/view/widgets/book_details_app_bar.dart';
+import 'package:bookly/features/home/presentation/view/widgets/book_image_widget.dart';
 import 'package:bookly/features/home/presentation/view/widgets/similar_books_list_view.dart';
 import 'package:bookly/features/home/presentation/view/widgets/two_material_buttons_row.dart';
 import 'package:bookly/features/home/presentation/view_model/similar_books_cubit/similar_books_cubit.dart';
@@ -39,47 +40,55 @@ class _BookDetailsViewState extends State<BookDetailsView> {
               SizedBox(
                 height: ScreenSize.screenHeight(context) / 3.3,
                 width: ScreenSize.screenWidth(context) / 2.3,
-                // child: const BookImageWidget(),
+                child: BookImageWidget(
+                  book: widget.book,
+                ),
               ),
               const SizedBox(
                 height: 30,
               ),
-              const Text(
-                'The Jungle Book',
+              Text(
+                widget.book.volumeInfo!.title ?? '',
                 style: Styles.textStyle30,
+                textAlign: TextAlign.center,
               ),
               const SizedBox(
                 height: 10,
               ),
-              Text(
-                'owner name',
-                style: Styles.textStyle18
-                    .copyWith(color: Colors.white.withOpacity(0.7)),
+              SizedBox(
+                height: ScreenSize.screenHeight(context) / 20,
+                child: Text.rich(
+                  TextSpan(
+                    children: [
+                      for (int i = 0;
+                          i < widget.book.volumeInfo!.authors!.length;
+                          i++) ...[
+                        TextSpan(
+                          text: widget.book.volumeInfo!.authors![i],
+                          style: Styles.textStyle14
+                              .copyWith(color: Colors.white.withOpacity(0.5)),
+                        ),
+                        if (i != widget.book.volumeInfo!.authors!.length - 1)
+                          const TextSpan(
+                            text: ' - ',
+                            style: TextStyle(color: Colors.white54),
+                          ),
+                      ],
+                    ],
+                  ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
               const SizedBox(
                 height: 20,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(
-                    Icons.star,
-                    color: Colors.yellow,
-                  ),
-                  const Text(
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    '4.8',
-                    style:
-                        TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500),
-                  ),
-                  Text(
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      '   (2390)',
-                      style: Styles.textStyle14
-                          .copyWith(color: Colors.white.withOpacity(0.5))),
-                ],
+              Text(
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                widget.book.volumeInfo!.publishedDate ?? '',
+                style: const TextStyle(
+                    fontSize: 16.0, fontWeight: FontWeight.w500),
               ),
               const SizedBox(
                 height: 30,

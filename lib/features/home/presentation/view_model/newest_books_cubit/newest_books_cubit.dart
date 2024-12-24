@@ -24,4 +24,8 @@ class NewestBooksCubit extends Cubit<NewestBooksState> {
       },
     );
   }
+
+  Future<void> refreshNewestBooks() async {
+    await fetchNewestBooks();
+  }
 }

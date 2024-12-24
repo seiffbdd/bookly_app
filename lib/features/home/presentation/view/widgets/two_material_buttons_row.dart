@@ -22,7 +22,7 @@ class TwoMaterialButtonsRow extends StatelessWidget {
                   bottomLeft: Radius.circular(24))),
           onPressed: () {},
           child: const Text(
-            '19.9\$',
+            'Free Download',
             style: TextStyle(
                 color: Colors.black, fontSize: 15, fontWeight: FontWeight.bold),
           ),

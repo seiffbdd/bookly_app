@@ -32,8 +32,9 @@ class SimilarBooksListView extends StatelessWidget {
                     width: ScreenSize.screenWidth(context) / 3,
                     child: GestureDetector(
                       onTap: () {
-                        GoRouter.of(context)
-                            .pushReplacement(AppRouter.kBookDetailsView);
+                        GoRouter.of(context).pushReplacement(
+                            AppRouter.kBookDetailsView,
+                            extra: state.books[index]);
                       },
                       child: BookImageWidget(
                         book: state.books[index],

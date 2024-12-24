@@ -26,4 +26,8 @@ class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
       },
     );
   }
+
+  Future<void> refreshFeaturedBooks() async {
+    await fetchFeaturedBooks();
+  }
 }

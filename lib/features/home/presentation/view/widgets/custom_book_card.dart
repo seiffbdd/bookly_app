@@ -36,18 +36,27 @@ class CustomBookCard extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: ListView.separated(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: book.volumeInfo!.authors!.length,
-                  separatorBuilder: (context, index) => const Text('-'),
-                  itemBuilder: (context, index) {
-                    return Text(
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        book.volumeInfo!.authors![index],
-                        style: Styles.textStyle14
-                            .copyWith(color: Colors.white.withOpacity(0.5)));
-                  },
+                child: Text.rich(
+                  TextSpan(
+                    children: [
+                      for (int i = 0;
+                          i < book.volumeInfo!.authors!.length;
+                          i++) ...[
+                        TextSpan(
+                          text: book.volumeInfo!.authors![i],
+                          style: Styles.textStyle14
+                              .copyWith(color: Colors.white.withOpacity(0.5)),
+                        ),
+                        if (i != book.volumeInfo!.authors!.length - 1)
+                          const TextSpan(
+                            text: ' - ',
+                            style: TextStyle(color: Colors.white54),
+                          ),
+                      ],
+                    ],
+                  ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
               Row(
